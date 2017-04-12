@@ -10,6 +10,7 @@
             <div class="btn-sm btn-primary pull-right edit"
                 data-id="{{ $item->id }}"
                 data-title="{{ $item->title }}"
+                data-tooltip="{{ $item->tooltip }}"
                 data-url="{{ $item->url }}"
                 data-target="{{ $item->target }}"
                 data-icon_class="{{ $item->icon_class }}"

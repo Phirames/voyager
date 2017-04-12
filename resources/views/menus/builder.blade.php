@@ -78,6 +78,11 @@
                         <label for="name">Title of the Menu Item</label>
                         @include('voyager::multilingual.input-hidden', ['_field_name' => 'title', '_field_trans' => ''])
                         <input type="text" class="form-control" id="m_title" name="title" placeholder="Title"><br>
+
+
+                        <label for="tooltip">Tooltip of the Menu Item</label>
+                        <input type="text" class="form-control" id="m_tooltip" name="tooltip" placeholder="Tooltip"><br>
+
                         <label for="type">Link type</label>
                         <select id="m_link_type" class="form-control" name="type">
                             <option value="url" selected="selected">Static URL</option>
@@ -164,6 +169,8 @@
                 $m_form_method = $('#m_form_method'),
                 $m_title       = $('#m_title'),
                 $m_title_i18n  = $('#title_i18n'),
+                $m_tooltip     = $('#m_tooltip'),
+                $m_tooltip_i18n= $('#tooltip_i18n'),
                 $m_url_type    = $('#m_url_type'),
                 $m_url         = $('#m_url'),
                 $m_link_type   = $('#m_link_type'),
@@ -215,8 +222,8 @@
 
                     var _src = e.relatedTarget.data, // the source
                         id   = _src.data('id');
-
                     $m_title.val(_src.data('title'));
+                    $m_tooltip.val(_src.data('tooltip'));
                     $m_url.val(_src.data('url'));
                     $m_route.val(_src.data('route'));
                     $m_parameters.val(JSON.stringify(_src.data('parameters')));
@@ -253,6 +260,7 @@
 
                 if (translatable) {
                     $m_title_i18n.val($_str_i18n);
+                    $m_tooltip_i18n.val($_str_i18n);
                     translatable.refresh();
                 }
             });
